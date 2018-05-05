@@ -20,3 +20,9 @@ class Images(models.Model):
 
     def __str__(self):
         return self.name
+    class Meta:
+        ordering = ['category']
+    @classmethod
+    def all_images(cls):
+        images = cls.objects.all()
+        return images
