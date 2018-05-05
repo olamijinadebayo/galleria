@@ -3,13 +3,15 @@ from django.db import models
 # Create your models here.
 class Category(models.Model):
     category = models.CharField(max_length=20)
-
+    def __str__(self):
+        return self.category
 class Location(models.Model):
     country = models.CharField(max_length=20)
-
+    def __str__(self):
+        return self.country
 class Images(models.Model):
     name = models.CharField(max_length=20)
-    description = models.CharField(max_length=20)
+    description = models.CharField(max_length=40)
     width = models.IntegerField(default=0)
     height = models.IntegerField(default=0)
     image = models.ImageField(upload_to ='images/', null=True,blank =False,width_field='width',height_field='height')
