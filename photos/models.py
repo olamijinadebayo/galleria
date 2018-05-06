@@ -9,6 +9,12 @@ class Category(models.Model):
     def save_category(self):
         self.save()
 
+    def delete_category(self):
+        '''
+        Method to delete a category from the database
+        '''
+        self.delete()
+
 class Location(models.Model):
     country = models.CharField(max_length=20)
 
@@ -17,6 +23,12 @@ class Location(models.Model):
 
     def save_location(self):
         self.save()
+
+    def delete_location(self):
+        '''
+        Method to delete a location from the database
+        '''
+        self.delete()
 
 class Images(models.Model):
     name = models.CharField(max_length=20)
@@ -32,6 +44,12 @@ class Images(models.Model):
 
     def save_images(self):
         self.save()
+
+    def delete_images(self):
+        '''
+        Method to delete a images from the database
+        '''
+        self.delete()
 
     class Meta:
         ordering = ['category']
