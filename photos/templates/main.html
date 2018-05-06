@@ -9,6 +9,10 @@
       <div class="col-md-4 gallery">
         <img data-toggle="modal" data-target="#myModal" src="{{image.image.url}}"
         class="img-responsive" alt="Image">
+        <button class="btn" data-clipboard-text="{{image.Image_url.url}}">
+                                Copy photo url
+                            </button>
+
         <!-- Modal -->
         <div id="myModal" class="modal fade" role="dialog">
           <div class="modal-dialog modal-lg">

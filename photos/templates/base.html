@@ -26,6 +26,16 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         {% bootstrap_javascript %}
         <script src="{% static 'js/base.js' %}"></script>
+        <script src="{% static 'js/clipboard.min.js'%}"></script>
+        <script>
+            var clipboard = new ClipboardJS('.btn');
+            clipboard.on('success', function(e) {
+                console.log(e);
+            });
+            clipboard.on('error', function(e) {
+                console.log(e);
+            });
+          </script>
     {% endblock %}
 </body>
 </html>
