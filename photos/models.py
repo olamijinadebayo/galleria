@@ -33,9 +33,9 @@ class Location(models.Model):
 class Images(models.Model):
     name = models.CharField(max_length=20)
     description = models.CharField(max_length=40)
-    width = models.IntegerField(default=0)
-    height = models.IntegerField(default=0)
-    image = models.ImageField(upload_to ='images/', null=True,blank =False,width_field='width',height_field='height')
+    # width = models.IntegerField(default=0)
+    # height = models.IntegerField(default=0)
+    image = models.ImageField(upload_to ='images/', null=True,blank =False)
     location = models.ForeignKey(Location)
     category = models.ForeignKey(Category)
 

@@ -1,6 +1,7 @@
 .gallery img{
   filter: grayscale(100%);
   transition: 1s;
+  float: left;
 }
 .gallery img:hover{
   filter: grayscale(0);
