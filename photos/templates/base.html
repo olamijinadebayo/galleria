@@ -24,19 +24,8 @@
 
     {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="base.js">
-
-        </script>
         {% bootstrap_javascript %}
-        <script>
-          $(window).load(function(){
-            $('img').on('click',function(){
-                var src = $(this).attr('src');
-                alert("loaded")
-            });
-          });
-        </script>
-
+        <script src="{% static 'js/base.js' %}"></script>
     {% endblock %}
 </body>
 </html>

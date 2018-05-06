@@ -19,3 +19,8 @@ def search(request):
     else:
         message = "You haven't searched for any term"
     return render(request,'search.html')
+
+def kenya(request):
+    locations = Images.kenyan_images()
+    print(locations)
+    return render(request, 'kenya.html',{"locations":locations})

@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+
+{% block content %}
+{{block.super}}
+<div class="container">
+
+  <div class="row">
+
+  {% if locations %}
+    {% for photo in locations %}
+      <div class="col-sm-6 col-md-3">
+        <img class="img-responsive" src="{{photo.image.url}}" alt="">
+      </div>
+    {% endfor %}
+  {% endif %}
+  </div>
+</div>
+{% endblock %}
