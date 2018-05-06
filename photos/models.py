@@ -50,3 +50,8 @@ class Images(models.Model):
     def kenyan_images(cls):
         kenyan_photos = cls.objects.filter(location__country ='Kenya')
         return kenyan_photos
+
+    @classmethod
+    def nigerian_images(cls):
+        nigerian_photos = cls.objects.filter(location__country ='Nigeria')
+        return nigerian_photos

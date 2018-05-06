@@ -1,0 +1,38 @@
+{% extends 'base.html'%}
+
+{% block content %}
+  {{block.super}}
+    <div class="container">
+      <div class="row">
+        {% if naija_pics %}
+          {% for pic in naija_pics %}
+            <div class="col-sm-6 col-md-3 gallery">
+              <img data-toggle="modal" data-target="#myModal" class="img-responsive" src="{{pic.image.url}}" alt="">
+
+              <!-- Modal -->
+              <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-lg">
+
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                      <img  src=""
+                       class="showimage img-responsive"alt="Image">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+{% endblock %}

@@ -24,3 +24,8 @@ def kenya(request):
     locations = Images.kenyan_images()
     print(locations)
     return render(request, 'kenya.html',{"locations":locations})
+
+def nigeria(request):
+    naija_pics = Images.nigerian_images()
+    print(naija_pics)
+    return render(request, 'nigeria.html',{"naija_pics":naija_pics})
