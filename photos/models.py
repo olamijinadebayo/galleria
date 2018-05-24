@@ -1,8 +1,11 @@
 from django.db import models
 
 # Create your models here.
+
+
 class Category(models.Model):
     category = models.CharField(max_length=20)
+
     def __str__(self):
         return self.category
 
@@ -14,6 +17,7 @@ class Category(models.Model):
         Method to delete a category from the database
         '''
         self.delete()
+
 
 class Location(models.Model):
     country = models.CharField(max_length=20)
@@ -30,12 +34,11 @@ class Location(models.Model):
         '''
         self.delete()
 
+
 class Images(models.Model):
     name = models.CharField(max_length=20)
     description = models.CharField(max_length=40)
-    # width = models.IntegerField(default=0)
-    # height = models.IntegerField(default=0)
-    image = models.ImageField(upload_to ='images/', null=True,blank =False)
+    image = models.ImageField(upload_to='images/', null=True, blank=False)
     location = models.ForeignKey(Location)
     category = models.ForeignKey(Category)
 
@@ -60,16 +63,16 @@ class Images(models.Model):
         return images
 
     @classmethod
-    def search_by_category(cls,search_term):
+    def search_by_category(cls, search_term):
         category = cls.objects.filter(category__category__icontains=search_term)
         return category
 
     @classmethod
     def kenyan_images(cls):
-        kenyan_photos = cls.objects.filter(location__country ='Kenya')
+        kenyan_photos = cls.objects.filter(location__country='Kenya')
         return kenyan_photos
 
     @classmethod
     def nigerian_images(cls):
-        nigerian_photos = cls.objects.filter(location__country ='Nigeria')
+        nigerian_photos = cls.objects.filter(location__country='Nigeria')
         return nigerian_photos
