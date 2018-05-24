@@ -1,27 +1,57 @@
 {%extends 'base.html'%}
-
-
+{% load bootstrap3 %}
+{% block styles %}
+{% load static %}
+{{block.super}}
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+{% endblock %}
 {% block content %}
 {{block.super}}
-<div class="container-fluid">
+<style>
+header{
+  background: url('{% static "images/landing3.jpeg"%}');
+  background-repeat: no-repeat;
+  background-size:cover;
+  width: 100vw;
+  height: 80vh;
+  padding:100px 0px;
+  margin-bottom: 5%;
+}
+</style>
+<header>
+<div class="landing container-fluid">
+	<div class="container text-center">
+		  <h2><strong>Welcome To Mijin's Galleria</strong></h2>
+		  <p>Beautiful, Free Pictures</p>
+        <form class="form" role="search" action="{% url 'search' %}">
+          <div class="input-group navbar-right">
+            <input type="text" class="form-control input-lg" placeholder="Search Image" name="category" >
+            <div class="input-group-btn">
+              <button class="btn btn-default btn-lg" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+          </div>
+        </form>
+	</div>
+</div>
+</header>
+
+<div class="container">
     <div class="row">
       {% for image in images %}
-      <div class=" col-md-4 gallery">
+      <div class="col-md-4 gallery">
         <img data-toggle="modal" data-target="#myModal" src="{{image.image.url}}"
         class="img-responsive" alt="Image">
         <button class="btn" data-clipboard-text="http://127.0.0.1:8000{{image.image.url}}">
-                                Copy photo url
-                            </button>
-
+                        Copy photo url
+        </button>
         <!-- Modal -->
         <div id="myModal" class="modal fade" role="dialog">
           <div class="modal-dialog modal-lg">
-
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title"></h4>
+                <h4 class="modal-title">{{image.name}}</h4>
               </div>
               <div class="modal-body">
                 <img  src=""
@@ -31,9 +61,9 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               </div>
             </div>
-
           </div>
         </div>
+
 
 
       </div>
