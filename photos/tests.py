@@ -81,24 +81,24 @@ class LocationTestClass(TestCase):
         Location.objects.all().delete()
 
 
-class CategoryTestClass(TestCase):
-    def setUp(self):
-        self.category = Category(category='Travel')
-        self.category.save()
-
-    def tearDown(self):
-        Category.objects.all().delete()
-
-    def test_instance(self):
-        self.assertTrue(isinstance(self.category, Category))
-
-    def test_save_category(self):
-        Category.objects.all().delete()
-        self.category.save_category()
-        categories = Category.objects.all()
-        self.assertTrue(len(categories) > 0)
-
-    def test_delete_category(self):
-        self.category.delete_category()
-        category = Category.objects.all()
-        self.assertTrue(len(category) == 0)
+# class CategoryTestClass(TestCase):
+#     def setUp(self):
+#         self.category = Category(category='Travel')
+#         self.category.save()
+#
+#     def tearDown(self):
+#         Category.objects.all().delete()
+#
+#     def test_instance(self):
+#         self.assertTrue(isinstance(self.category, Category))
+#
+#     def test_save_category(self):
+#         Category.objects.all().delete()
+#         self.category.save_category()
+#         categories = Category.objects.all()
+#         self.assertTrue(len(categories) > 0)
+#
+#     def test_delete_category(self):
+#         self.category.delete_category()
+#         category = Category.objects.all()
+#         self.assertTrue(len(category) == 0)
