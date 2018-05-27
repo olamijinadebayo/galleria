@@ -42,7 +42,7 @@ header{
         <img data-toggle="modal" data-target="#myModal" src="{{image.image.url}}"
         class="img-responsive" alt="Image">
         <button class="btn" data-clipboard-text="http://127.0.0.1:8000{{image.image.url}}">
-                        Copy photo url
+          Copy image link
         </button>
         <!-- Modal -->
         <div id="myModal" class="modal fade" role="dialog">
@@ -52,12 +52,14 @@ header{
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">{{image.name}}</h4>
+                <p class="description">{{image.description}}</p>
               </div>
               <div class="modal-body">
                 <img  src=""
                  class=" showimage img-responsive"alt="Image">
               </div>
               <div class="modal-footer">
+
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               </div>
             </div>
